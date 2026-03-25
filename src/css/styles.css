@@ -1,18 +1,183 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
-/* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+body {
+	font-family: Montserrat, Arial, sans-serif;
+	background-color: #fafafa;
+	color: #2e2f42;
+}
+
+.container {
+	max-width: 1320px;
+	margin: 0 auto;
+	padding: 24px 16px 40px;
+}
+
+.search-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	margin-bottom: 32px;
+}
+
+.search-form input {
+	width: 272px;
+	height: 40px;
+	padding: 8px 16px;
+	border: 1px solid #808080;
+	border-radius: 4px;
+	font: inherit;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.04em;
+	color: #2e2f42;
+	background-color: #fff;
+	outline: none;
+	transition: border-color 200ms ease;
+}
+
+.search-form input::placeholder {
+	color: #808080;
+}
+
+.search-form input:hover {
+	border-color: #000;
+}
+
+.search-form input:focus {
+	border-color: #4e75ff;
+}
+
+.search-form button,
+.load-more {
+	min-width: 91px;
+	height: 40px;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 8px;
+	font: inherit;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.04em;
+	color: #fff;
+	background-color: #4e75ff;
+	transition: background-color 200ms ease;
+}
+
+.search-form button:hover,
+.load-more:hover {
+	background-color: #6c8cff;
+}
+
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+.gallery-item {
+	overflow: hidden;
+	border: 1px solid #808080;
+	border-radius: 4px;
+	background-color: #fff;
+}
+
+.gallery-link {
+	display: block;
+}
+
+.gallery-image {
+	width: 100%;
+	height: 120px;
+	object-fit: cover;
+}
+
+.image-info {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 4px;
+	padding: 4px 8px;
+	text-align: center;
+}
+
+.image-info p {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+}
+
+.image-info b {
+	font-size: 11px;
+	line-height: 16px;
+	letter-spacing: 0.04em;
+}
+
+.image-info span {
+	font-size: 11px;
+	line-height: 18px;
+	letter-spacing: 0.04em;
+}
+
+.load-more {
+	display: block;
+	min-width: 125px;
+	margin: 32px auto 16px;
+}
+
+.loader {
+	width: 36px;
+	height: 36px;
+	margin: 0 auto;
+	border: 3px solid #e0e0e0;
+	border-top-color: #4e75ff;
+	border-radius: 50%;
+	animation: spin 800ms linear infinite;
+}
+
+.is-hidden {
+	display: none;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (max-width: 767px) {
+	.gallery {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.search-form {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.search-form input,
+	.search-form button {
+		width: 100%;
+		max-width: 320px;
+	}
+
+	.image-info {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 1200px) {
+	.gallery {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 992px) {
+	.gallery {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
